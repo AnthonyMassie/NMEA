@@ -12,10 +12,12 @@ NMEA myNMEA = new NMEA();
 //add an NMEA sentence to be parsed (water temperature at 84.9*C)
 myNMEA.data( "$--TWM,84.9,C*HH" );
 
-//get temperature
+//get temperature sentence
 TWMSentence temperature = myNMEA.get( TWMSentence.class );
 
 //output temperature
-temperature.getTemperature( TWMSentence.TempType.FAHRENHEIT );
+System.out.println(
+	temperature.getTemperature( TWMSentence.TempType.FAHRENHEIT )
+);
 
 ```
