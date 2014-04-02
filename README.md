@@ -45,10 +45,7 @@ public class TWMSentence extends NMEASentence
 		temperature = Double.parseDouble( getWord( 0 ) );
 	}
 	
-	/**
-	 * 
-	 * @return the temperature
-	 */
+	//temperature accessor
 	public double getTemperature( TempType type )
 	{
 		return temperature;
