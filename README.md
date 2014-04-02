@@ -22,7 +22,7 @@ System.out.println(
 
 ```
 
-EXTENDING AND ADDING YOUR OWN SENTENCES
+ADDING YOUR OWN SENTENCES
 ===
 
 In order to add your own NMEA sentence, you must extend the NMEASentence class as part of the com.anthonyontheweb.nmea.sentence package. The software expects your class to be named in the format IDENTIFIERSentence.
