@@ -21,3 +21,36 @@ System.out.println(
 );
 
 ```
+
+EXTENDING AND ADDING YOUR OWN SENTENCES
+===
+
+In order to add your own NMEA sentence, you must extend the NMEASentence class as part of the com.anthonyontheweb.nmea.sentence package. The software expects your class to be named in the format IDENTIFIERSentence.
+
+For example:
+```java
+// A simple NMEASentence to parse water temperature
+public class TWMSentence extends NMEASentence
+{
+	//contains temperature
+	private double temperature;
+	
+	//constructor accepts the raw string
+	public TWMSentence( String sentence )
+	{
+		//DON'T FORGET TO CALL SUPER CLASS CONSTRUCTOR
+		super(sentence);
+		
+		//each sentence is made of words, temperature is the first word!
+		temperature = Double.parseDouble( getWord( 0 ) );
+	}
+	
+	/**
+	 * 
+	 * @return the temperature
+	 */
+	public double getTemperature( TempType type )
+	{
+		return temperature;
+	}
+``
