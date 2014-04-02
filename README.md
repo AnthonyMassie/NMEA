@@ -46,7 +46,7 @@ public class TWMSentence extends NMEASentence
 	}
 	
 	//temperature accessor
-	public double getTemperature( TempType type )
+	public double getTemperature( )
 	{
 		return temperature;
 	}
