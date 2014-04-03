@@ -78,7 +78,7 @@ public class NMEA
 	 * @param identifier the NMEA identifier
 	 * @param event the NMEAEvent
 	 */
-	public <T extends NMEAEvent>void bindEvent( Class<? extends NMEASentence> c, T event )
+	public <T extends NMEAEvent<? extends NMEASentence>>void bindEvent( Class<? extends NMEASentence> c, T event )
 	{
 		events.put( c, event );
 	}
