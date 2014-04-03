@@ -1,4 +1,4 @@
-NMEA
+NMEA Parser
 ====
 
 NMEA stands for National Marine Electronics Association and the NMEA0183 and NMEA2000 protocols are widely used in marine electronics. The purpose of this project is to provide an easy to use interface to parse the NMEA protocol.
