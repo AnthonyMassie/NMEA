@@ -11,6 +11,11 @@ package com.anthonyontheweb.nmea.sentence;
 public class NMEASentence
 {
 	/**
+	 * Type of miles
+	 */
+	public static enum DistType { KILO, NAUTS, MILES };
+	
+	/**
 	 * The raw unprocessed sentence. 
 	 */
 	private String rawSentence;
@@ -92,5 +97,39 @@ public class NMEASentence
 	public String getIdentifier()
 	{
 		return identifier;
+	}
+	
+	/**
+	 * A convenience method that hecks if a string is in boolean form.
+	 */
+	protected static boolean getBoolean( String s )
+	{
+		return  s.equalsIgnoreCase( "1" ) || s.equalsIgnoreCase("T")|| s.equalsIgnoreCase( "TRUE" );	
+	}
+	
+	/**
+	 * A convenience method to convert kilometers, nautical miles and miles.
+	 * 
+	 * @param value the value to convert
+	 * @param from the type to convert from
+	 * @param to the type to convert to
+	 * 
+	 * @return the converted value
+	 */
+	protected static double convertDist( double value, DistType from, DistType to )
+	{
+		//first convert to nautical miles
+		if( from == DistType.KILO )
+			value *= 0.539957; 
+		else if( from == DistType.MILES )
+			value *= 0.868976;
+		
+		//now convert to the to type
+		if( to == DistType.KILO )
+			value *= 1.852;
+		else if( to == DistType.MILES )
+			value *= 1.15078;
+		
+		return value;
 	}
 }

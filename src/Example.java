@@ -14,11 +14,22 @@ public class Example {
     	NMEA m = new NMEA();
     	
     	//add temperature data (84.9*F)
-    	m.data( "$--TWM,84.9,C*HH" );
+    	m.data( "$--TWM,84.9,F*HH" );
+    	m.data( "$--AAM,1,0,1.7,N,G554*HH" );
     	
     	//get the previously logged temperature
     	TWMSentence t = m.get( TWMSentence.class );
-    	System.out.println( t.getTemperature( TWMSentence.TempType.FAHRENHEIT ) );
+    	
+    	System.out.println( "Temperature: " + t.getTemperature( TWMSentence.TempType.FAHRENHEIT ) + "*F" );
+    	
+    	//get the waypoint arrival alarm
+    	AAMSentence aam = m.get( AAMSentence.class );
+    	
+    	System.out.println(
+    			"Arrived at " + aam.getWaypointID()
+    			+ " (radius=" + aam.getRadius( AAMSentence.DistType.KILO ) + "K)? "
+    			 + aam.enteredCircle()
+    	);
     	
         //add event
         m.bindEvent(
@@ -28,7 +39,7 @@ public class Example {
         		@Override
         		public void event( TWMSentence sentence ) {
         			System.out.println(
-        				sentence.getTemperature( TWMSentence.TempType.CELSIUS )
+        				"Temperature: " + sentence.getTemperature( TWMSentence.TempType.CELSIUS ) + "*C"
         			);
         		}
         	}
@@ -36,6 +47,6 @@ public class Example {
         
         //the temperature has changed
         // the event should output this temperature
-    	m.data( "$--TWM,90.9,C*HH" );
+    	m.data( "$--TWM,90.9,F*HH" );
     }
 }
