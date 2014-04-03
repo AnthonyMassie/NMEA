@@ -40,23 +40,22 @@
 
 			<p>NMEA stands for National Marine Electronics Association and the NMEA0183 and NMEA2000 protocols are widely used in marine electronics. The purpose of this project is to provide an easy to use interface to parse the NMEA protocol.</p>
 			<p>The NMEA parser has been made to be easily implemented and extended.</p>
-			{% highlight ruby %}
 
-			<pre>
-<span style='color:#3f7f59; '>//create the nmea object</span>
-NMEA myNMEA = <span style='color:#7f0055; font-weight:bold; '>new</span> NMEA();
+<pre>
+//create the nmea object
+NMEA myNMEA = new NMEA();
 
-<span style='color:#3f7f59; '>//add an NMEA sentence to be parsed (water temperature at 84.9*C)</span>
-myNMEA.data( <span style='color:#2a00ff; '>"$--TWM,84.9,C*HH"</span> );
+//add an NMEA sentence to be parsed (water temperature at 84.9*C)
+myNMEA.data( "$--TWM,84.9,C*HH" );
 
-<span style='color:#3f7f59; '>//get temperature sentence</span>
+//get temperature sentence
 TWMSentence temperature = myNMEA.get( TWMSentence.class );
 
-<span style='color:#3f7f59; '>//output temperature</span>
-<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(
+//output temperature
+System.out.println(
 	temperature.getTemperature( TWMSentence.TempType.FAHRENHEIT )
 );
-			</pre>
+</pre>
         <footer>
 			NMEA Parser is maintained by <a href="https://github.com/AnthonyMassie">AnthonyMassie</a>
         </footer>
