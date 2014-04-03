@@ -74,8 +74,6 @@ public class NMEASentence
 		for( int i = 0; i < sentence.length(); i++ )
 		    cs ^= sentence.charAt(i);
 		
-		System.out.println( sentence + "; calculated: " + cs + "; given: " + Integer.parseInt( checksum, 16 ));
-		
 		//checksums match?
 		return Integer.parseInt( checksum, 16 ) == cs;
 	}
