@@ -32,8 +32,9 @@ public class AAMSentence extends NMEASentence
 	 * Initiates the waypoint arrival alarm.
 	 * 
 	 * @param sentence
+	 * @throws Exception 
 	 */
-	public AAMSentence( String sentence )
+	public AAMSentence( String sentence ) throws Exception
 	{
 		super(sentence);
 

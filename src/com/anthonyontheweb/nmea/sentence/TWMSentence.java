@@ -19,8 +19,9 @@ public class TWMSentence extends NMEASentence
 	 * Calls the NMEASentence constructor.
 	 * 
 	 * @param sentence the sentence of the water temperature
+	 * @throws Exception 
 	 */
-	public TWMSentence( String sentence )
+	public TWMSentence( String sentence ) throws Exception
 	{
 		super(sentence);
 		

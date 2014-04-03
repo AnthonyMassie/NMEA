@@ -38,8 +38,9 @@ public class NMEASentence
 	/**
 	 *	The constructor processes the
 	 *  NMEA string.
+	 * @throws Exception 
 	 */
-	public NMEASentence( String sentence )
+	public NMEASentence( String sentence ) throws Exception
 	{
 		rawSentence = sentence;
 		identifier = sentence.substring( 1, 6 ).replaceAll( "-", "" );
@@ -52,12 +53,32 @@ public class NMEASentence
 		{
 			checksum = sentence.substring( sentence.length() - 2, sentence.length() );
 			sentence = sentence.substring( 0, sentence.length() - 3 );
+			
+			//make sure checksum is correct
+			if( !checksum( rawSentence.substring( 1, rawSentence.length() - 3), checksum ) )
+				throw new Exception( "The checksum provided does not match the checksum calculated." );
+
 		}
 
 		//split into words
 		pieces = sentence.split( "," );
 	}
 	
+	/**
+	 * Checks if the checksum is valid.
+	 */
+	boolean checksum( String sentence, String checksum )
+	{
+		int cs = 0;
+		
+		for( int i = 0; i < sentence.length(); i++ )
+		    cs ^= sentence.charAt(i);
+		
+		System.out.println( sentence + "; calculated: " + cs + "; given: " + Integer.parseInt( checksum, 16 ));
+		
+		//checksums match?
+		return Integer.parseInt( checksum, 16 ) == cs;
+	}
 	/**
 	 * Accessor returns the raw sentence.
 	 */

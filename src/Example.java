@@ -14,8 +14,8 @@ public class Example {
     	NMEA m = new NMEA();
     	
     	//add temperature data (84.9*F)
-    	m.data( "$--TWM,84.9,F*HH" );
-    	m.data( "$--AAM,1,0,1.7,N,G554*HH" );
+    	m.data( "$--TWM,84.9,F*13" );
+    	m.data( "$--AAM,1,0,1.7,N,G554*75" );
     	
     	//get the previously logged temperature
     	TWMSentence t = m.get( TWMSentence.class );
@@ -47,6 +47,6 @@ public class Example {
         
         //the temperature has changed
         // the event should output this temperature
-    	m.data( "$--TWM,90.9,F*HH" );
+    	m.data( "$--TWM,90.9,F*16" );
     }
 }
