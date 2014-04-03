@@ -54,3 +54,8 @@ public class TWMSentence extends NMEASentence
 	}
 }
 ```
+
+IMPLEMENTED SENTENCES
+===
+AAM - Waypoint Arrival Alarm
+TWM - Water Temperature
