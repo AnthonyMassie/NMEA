@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<title>NMEA Parser API List</title>
+	</head>
+	<body>
+		<div class="class">
+			<span class="class-ame">com::anthonyontheweb::nmea::sentence::AAMSentence</span>
+			<p class="class-description">AAM sentence parses waypoint arrival alarms.</p>
+			<div class="method">
+				<span class="method-name">AAMSentence(String sentence)</span>
+				<p class="class-description">Initiates the waypoint arrival alarm.</p>
+			</div>
+			<div class="method">
+				<span class="method-name">enteredCircle()</span>
+				<p class="class-description">Returns true if the circle has been entered, otherwise false.</p>
+			</div>
+			<div class="method">
+				<span class="method-name">passedPerpendicular()</span>
+				<p class="class-description">Returns true if the perpendicular has been passed, otherwise false.</p>
+			</div>
+			<div class="method">
+				<span class="method-name">getRadius(DistType t)</span>
+				<p class="class-description">Gets the radius of the circle.</p>
+			</div>
+			<div class="method">
+				<span class="method-name">getWaypointID()</span>
+				<p class="class-description">Returns the waypoint ID.</p>
+			</div>
+		</div>
+		<div class="class">
+			<span class="class-ame">com::anthonyontheweb::nmea::sentence::NMEASentence</span>
+			<p class="class-description">The NMEA class delegates NMEA sentences and handles events.</p>
+			<div class="method">
+				<span class="method-name">NMEASentence(String sentence)</span>
+				<p class="class-description">The constructor processes the NMEA string.
+				</p>
+			</div>
+			<div class="method">
+				<span class="method-name">getRawSentence()</span>
+				<p class="class-description">Accessor returns the raw sentence.</p>
+			</div>
+			<div class="method">
+				<span class="method-name">getWord(int i)</span>
+				<p class="class-description">Returns the nth word of the sentence. This does not include the identifier or checksum.</p>
+			</div>
+			<div class="method">
+				<span class="method-name">numwords()</span>
+				<p class="class-description">Returns the number of words in the sentence.</p>
+			</div>
+			<div class="method">
+				<span class="method-name">getIdentifier()</span>
+				<p class="class-description">Returns the 5 code identifier.</p>
+			</div>
+		</div>
+		<div class="class">
+			<span class="class-ame">com::anthonyontheweb::nmea::sentence::TWMSentence</span>
+			<p class="class-description">Parses the water temperature string.</p>
+			<div class="method">
+				<span class="method-name">TWMSentence(String sentence)</span>
+				<p class="class-description">Calls the NMEASentence constructor.</p>
+			</div>
+			<div class="method">
+				<span class="method-name">getTemperature(TempType type)</span>
+				<p class="class-description">the temperature
+				</p>
+			</div>
+		</div>
+		<div class="class">
+			<span class="class-ame">com::anthonyontheweb::nmea::NMEA</span>
+			<p class="class-description">NMEA object delegates NMEA sentences and manages events to call when the data changes.</p>
+			<div class="method">
+				<span class="method-name">NMEA()</span>
+				<p class="class-description">Constructor initializes the maps.</p>
+			</div>
+			<div class="method">
+				<span class="method-name">data(String sentence)</span>
+				<p class="class-description">Pass a data string (NMEA sentence) into the NMEA object.</p>
+			</div>
+		</div>
+	</body>
+</html>
