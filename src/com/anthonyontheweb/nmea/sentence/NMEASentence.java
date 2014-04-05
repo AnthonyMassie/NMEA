@@ -77,6 +77,7 @@ public class NMEASentence
 		//checksums match?
 		return Integer.parseInt( checksum, 16 ) == cs;
 	}
+	
 	/**
 	 * Accessor returns the raw sentence.
 	 */
