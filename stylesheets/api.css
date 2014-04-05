@@ -1,10 +1,24 @@
 .class .class-name
 {
-	font-size: 2em;
+	font-size: 1.5em;
 	font-weight: bold
 }
 
+
 .class .class-description
 {
-	font-style: italics
+	font-size: 1.3em
+	font-style: italic
 }
+
+
+.class .method-name
+{
+	font-size: 1.3em;
+	font-weight: bold
+}
+
+ .class .method-description
+ {
+	font-style: italic
+ }
